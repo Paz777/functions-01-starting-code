@@ -66,9 +66,22 @@ const restup = (resultHandler, ...numbers) => {
     resultHandler(result);
 };
 
-function resultup(total) {
-    alert('what is the result: ' + total);
+function resultup(msgText, total) {
+    alert(msgText + ' ' + total);
 };
 
-restup(resultup, 23, 4, 5, 7, 12);
-restup(resultup, 23, 4, 5, 7, 12, -8, 4, 5);
+const calc = (resultHandler, operation, ...numbers) => {
+    let total = 0;
+    for (const num of numbers) {
+        if (operation === 'SUM') {
+            total += num;
+        } else {
+            total -= num;
+        }
+    }
+    resultHandler(total);
+};
+
+calc(resultup.bind(this, 'adding up: '), 'SUM', 23, 4, 5, 7, 12);
+calc(resultup.bind(this, 'adding up: '), 'SUM', 23, 4, 5, 7, 12, -8, 4, 5);
+calc(resultup.bind(this, 'subtracting down: '), 'SUBTRACT', 2, 3, 4, 5);
