@@ -57,3 +57,18 @@ startGameButton.addEventListener('click', () => {
     alert(message);
     gameIsRunning = false;
 });
+
+const restup = (resultHandler, ...numbers) => {
+    let result = 0;
+    for (const num of numbers) {
+        result += num;
+    }
+    resultHandler(result);
+};
+
+function resultup(total) {
+    alert('what is the result: ' + total);
+};
+
+restup(resultup, 23, 4, 5, 7, 12);
+restup(resultup, 23, 4, 5, 7, 12, -8, 4, 5);
